@@ -2,9 +2,15 @@
 
 本リポジトリは夜間クラスのWordpressの授業で使用する
 
-## サーバ(LAMP)環境構築
+## vagrantによる環境設定
+1. VirtualBoxの入手&インストール  
+<a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">ここから</a>
+1. Vagrantの入手&インストール  
+<a href="https://www.vagrantup.com/downloads.html">ここから</a>  
+<a href="http://blog.raqda.com/vagrant/index.html">Vagrantドキュメント</a>  
 
-1. VirtualBoxのインストール
+## 仮想環境にDebianをインストール手順
+
 1. Debianの入手&インストール  
 <a href="https://www.debian.org/" target="_blank">ここから</a>
 1. 仮想環境の設定
@@ -15,6 +21,9 @@ $ ssh ユーザ名@localhost
 1. リポジトリ/システムの更新  
 $ sudo aptitude upgrade  
 $ sudo aptitude update  
+
+## サーバ(LAMP)環境構築
+
 1. Apache2インストール&設定
 	1. Apache2インストール  
 	$ sudo aptitude install apache2  
