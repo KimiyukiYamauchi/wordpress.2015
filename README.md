@@ -8,6 +8,7 @@
 1. Vagrantの入手&インストール  
 <a href="https://www.vagrantup.com/downloads.html">ここから</a>  
 <a href="http://blog.raqda.com/vagrant/index.html">Vagrantドキュメント</a>  
+<a href="http://www.vagrantbox.es/">vagrantbox.es</a>  
 
 ## 仮想環境にDebianをインストール手順
 
