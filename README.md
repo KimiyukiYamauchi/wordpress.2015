@@ -6,9 +6,9 @@
 1. VirtualBoxの入手&インストール  
 <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">ここから</a>
 1. Vagrantの入手&インストール  
-<a href="https://www.vagrantup.com/downloads.html">ここから</a>  
-<a href="http://blog.raqda.com/vagrant/index.html">Vagrantドキュメント</a>  
-<a href="http://www.vagrantbox.es/">vagrantbox.es</a>  
+<a href="https://www.vagrantup.com/downloads.html" target="_blank">ここから</a>  
+<a href="http://blog.raqda.com/vagrant/index.html" target="_blank">Vagrantドキュメント</a>  
+<a href="http://www.vagrantbox.es/" target="_blank">vagrantbox.es</a>  
 
 ## 仮想環境にDebianをインストール手順
 
