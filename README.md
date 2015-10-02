@@ -4,16 +4,17 @@
 
 ## vagrantによる環境設定
 1. VirtualBoxの入手&インストール  
-<a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">ここから</a>
+<a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">ここから入手</a>
 1. Vagrantの入手&インストール  
-<a href="https://www.vagrantup.com/downloads.html" target="_blank">ここから</a>  
+<a href="https://www.vagrantup.com/downloads.html" target="_blank">ここから入手</a>  
 <a href="http://blog.raqda.com/vagrant/index.html" target="_blank">Vagrantドキュメント</a>  
 <a href="http://www.vagrantbox.es/" target="_blank">vagrantbox.es</a>  
+<a href="https://github.com/KimiyukiYamauchi/wordpress.2015/blob/master/vagrant.command.md" target="_blank">vagrantコマンド一覧</a>
 
 ## 仮想環境にDebianをインストール手順
 
 1. Debianの入手&インストール  
-<a href="https://www.debian.org/" target="_blank">ここから</a>
+<a href="https://www.debian.org/" target="_blank">ここから入手</a>
 1. 仮想環境の設定
 	1. [設定]-[ネットワーク]-[高度]-[ポートフォワーディング]  
 	22番と80番を追加  
@@ -34,7 +35,7 @@ $ sudo aptitude update
 	1. MySQLインストール(インストール途中でデータベース管理者(root)のパスワード設定)  
 	$ sudo aptitude install mysql-server  
 	1. MySQLサーバへの接続確認(切断は「exit」)  
-	$ mysql -u root -p
+	$ mysql -u root -p  
 	mysql> exit
 	1. 設定ファイル(my.cnf)の編集  
 		1. ディレクトリの移動  
