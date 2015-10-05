@@ -21,7 +21,8 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 	1. [設定]-[ネットワーク]-[高度]-[ポートフォワーディング]  
 	22番と80番を追加  
 1. 仮想環境へのssh接続  
-$ ssh ユーザ名@localhost
+$ ssh ユーザ名@localhost  
+$ ssh -p 2222 vagrant@127.0.0.1  
 1. リポジトリ/システムの更新  
 $ sudo aptitude upgrade  
 $ sudo aptitude update  
