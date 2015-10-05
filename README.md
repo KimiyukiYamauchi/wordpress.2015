@@ -1,8 +1,8 @@
-# wordpress.2015
+# wordpress.2015  
 
 本リポジトリは夜間クラスのWordpressの授業で使用する
 
-## vagrantによる環境設定
+## vagrantによる環境設定  
 1. VirtualBoxの入手&インストール  
 <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">ここから入手</a>
 1. Vagrantの入手&インストール  
@@ -12,11 +12,11 @@
 <a href="http://www.vagrantbox.es/" target="_blank">vagrantbox.es</a>  
 <a href="https://github.com/KimiyukiYamauchi/wordpress.2015/blob/master/vagrant.command.md" target="_blank">vagrantコマンド一覧</a>
 
-## 仮想環境にDebianをインストール手順
+## 仮想環境にDebianをインストール手順  
 
 1. Debianの入手&インストール  
 <a href="https://www.debian.org/" target="_blank">ここから入手</a>
-1. 仮想環境の設定
+1. 仮想環境の設定  
 	1. [設定]-[ネットワーク]-[高度]-[ポートフォワーディング]  
 	22番と80番を追加  
 1. 仮想環境へのssh接続  
@@ -27,12 +27,12 @@ $ sudo aptitude update
 
 ## サーバ(LAMP)環境構築
 
-1. Apache2インストール&設定
+1. Apache2インストール&設定  
 	1. Apache2インストール  
 	$ sudo aptitude install apache2  
 	1. DocumentRootの所有者をログインユーザに変更  
 	$ sudo chown ユーザ名.グループ名 /var/www/html  
-1. MySQLインストール&設定
+1. MySQLインストール&設定  
 	1. MySQLインストール(インストール途中でデータベース管理者(root)のパスワード設定)  
 	$ sudo aptitude install mysql-server  
 	1. MySQLサーバへの接続確認(切断は「exit」)  
@@ -58,41 +58,41 @@ $ sudo aptitude update
 		::: ここまで :::  
 		1. 設定ファイルの再読み込み  
 		$ sudo service mysql reload  
-1. PHPイストール&設定
-		1. phpパッケージのインストール  
-		$ sudo aptitude install php5  
-		1. MySQLとの連携のためのパッケージのインストール  
-		$ sudo aptitude install php5-mysql  
-		1. その他のパッケージのインストール  
-		$ sudo aptitude install php-pear php5-gd  
-		1. Apacheの再起動(phpを読み込むため)  
+1. PHPイストール&設定  
+	1. phpパッケージのインストール  
+	$ sudo aptitude install php5  
+	1. MySQLとの連携のためのパッケージのインストール  
+	$ sudo aptitude install php5-mysql  
+	1. その他のパッケージのインストール  
+	$ sudo aptitude install php-pear php5-gd  
+	1. Apacheの再起動(phpを読み込むため)  
+	$ sudo service apache2 restart  
+	1. 動作確認  
+		1. エディタでphpファイルを作成  
+		$ vi /var/www/html/test.php  
+		::: 以下を追加 :::  
+		<?php  
+			phpinfo(); // phpの設定情報表示  
+		?>  
+		::: 以上を追加　:::  
+		1. ブラウザで以下にアクセスし、phpの設定情報が表示されること  
+		http://localhost/test.php  
+	1. 設定ファイル(php.ini)の編集
+		1. ディレクトリの移動  
+		$ cd /etc/php5/apache2  
+		1. php.iniのバックアップ  
+		$ sudo cp php.ini php.ini.bak  
+		1. エディタで開いて編集  
+		$ sudo vi php.ini  
+		::: ここから :::  
+		display_errors = On  
+		error_log = /var/log/php.log  
+		mbstring.language = Japanese  
+		mbstring.internal_encoding = UTF-8  
+		mbstring.http_input = auto  
+		mbstring.detect_order = auto  
+		expose_php = Off  
+		date.timezone = Asia/Tokyo  
+		::: ここまで :::  
+		1. Apacheの再起動(設定ファイルの再読み込みのため)  
 		$ sudo service apache2 restart  
-		1. 動作確認  
-			1. エディタでphpファイルを作成  
-			$ vi /var/www/html/test.php  
-			::: 以下を追加 :::  
-			<?php  
-				phpinfo(); // phpの設定情報表示  
-			?>  
-			::: 以上を追加　:::  
-			1. ブラウザで以下にアクセスし、phpの設定情報が表示されること  
-			http://localhost/test.php  
-		1. 設定ファイル(php.ini)の編集
-			1. ディレクトリの移動  
-			$ cd /etc/php5/apache2  
-			1. php.iniのバックアップ  
-			$ sudo cp php.ini php.ini.bak  
-			1. エディタで開いて編集  
-			$ sudo vi php.ini  
-			::: ここから :::  
-			display_errors = On  
-			error_log = /var/log/php.log  
-			mbstring.language = Japanese  
-			mbstring.internal_encoding = UTF-8  
-			mbstring.http_input = auto  
-			mbstring.detect_order = auto  
-			expose_php = Off  
-			date.timezone = Asia/Tokyo  
-			::: ここまで :::  
-			1. Apacheの再起動(設定ファイルの再読み込みのため)  
-			$ sudo service apache2 restart  
