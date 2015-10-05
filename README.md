@@ -37,13 +37,14 @@ $ sudo aptitude update
 	$ sudo aptitude install mysql-server  
 	1. MySQLサーバへの接続確認(切断は「exit」)  
 	$ mysql -u root -p  
-	mysql> exit
+	mysql> exit  
 	1. 設定ファイル(my.cnf)の編集  
 		1. ディレクトリの移動  
 		$ cd /etc/mysql  
 		1. my.cnfのバックアップ  
 		$ sudo cp my.cnf my.cnf.bak  
-		1. sudo vi my.cnf  
+		1. エディタで開いて編集  
+		$ sudo vi my.cnf  
 		::: ここから :::  
 		[mysqld]  
 		character_set_server = utf8  
@@ -57,3 +58,41 @@ $ sudo aptitude update
 		::: ここまで :::  
 		1. 設定ファイルの再読み込み  
 		$ sudo service mysql reload  
+1. PHPイストール&設定
+		1. phpパッケージのインストール  
+		$ sudo aptitude install php5  
+		1. MySQLとの連携のためのパッケージのインストール  
+		$ sudo aptitude install php5-mysql  
+		1. その他のパッケージのインストール  
+		$ sudo aptitude install php-pear php5-gd  
+		1. Apacheの再起動(phpを読み込むため)  
+		$ sudo service apache2 restart  
+		1. 動作確認  
+			1. エディタでphpファイルを作成  
+			$ vi /var/www/html/test.php  
+			::: 以下を追加 :::  
+			<?php  
+				phpinfo(); // phpの設定情報表示  
+			?>  
+			::: 以上を追加　:::  
+			1. ブラウザで以下にアクセスし、phpの設定情報が表示されること  
+			http://localhost/test.php  
+		1. 設定ファイル(php.ini)の編集
+			1. ディレクトリの移動  
+			$ cd /etc/php5/apache2  
+			1. php.iniのバックアップ  
+			$ sudo cp php.ini php.ini.bak  
+			1. エディタで開いて編集  
+			$ sudo vi php.ini  
+			::: ここから :::  
+			display_errors = On  
+			error_log = /var/log/php.log  
+			mbstring.language = Japanese  
+			mbstring.internal_encoding = UTF-8  
+			mbstring.http_input = auto  
+			mbstring.detect_order = auto  
+			expose_php = Off  
+			date.timezone = Asia/Tokyo  
+			::: ここまで :::  
+			1. Apacheの再起動(設定ファイルの再読み込みのため)  
+			$ sudo service apache2 restart  
