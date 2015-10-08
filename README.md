@@ -26,7 +26,7 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 	「アダプター２」に「ホストオンリーアダプタ」を設定
 1. ネットワークの設定(Debian側)  
 	1. 「アダプタ－２」の設定を追加  
-	$ sudo vi /etc/network/interface  
+	＃vi /etc/network/interface  
 	::: ここから追加 :::  
 	auto eth1  
 	iface eth1 inet static  
@@ -34,18 +34,18 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 	netmask 255.255.255.0  
 	::: ここまで追加 :::  
 	2. ネットワークの再起動  
-	$ sudo　service networking restart  
+	＃service networking restart  
 1. 仮想環境へのssh接続  
 $ ssh ユーザ名@localhost  
 $ ssh -p 2222 ユーザ名@127.0.0.1  
 $ ssh ユーザ名@192.168.33.10  
 1. リポジトリ/システムの更新  
-$ sudo　aptitude upgrade  
-$ sudo　aptitude update  
+＃aptitude upgrade  
+＃aptitude update  
 1. sudoコマンドを使えるようにする  
 	1. sudoコマンドインストール&設定  
-	$ sudo　aptitude install sudo  
-	$ sudo　vi /etc/group  
+	＃aptitude install sudo  
+	＃vi /etc/group  
 	「sudo:」にログインユーザを追加  
 	1. 一旦exitし、sshに接続し直す  
 ## サーバ(LAMP)環境構築
