@@ -17,16 +17,37 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 
 1. Debianの入手&インストール  
 <a href="https://www.debian.org/" target="_blank">ここから入手</a>
-1. 仮想環境の設定  
+1. 仮想環境の設定(VitrualBox側)  
 	1. [設定]-[ネットワーク]-[高度]-[ポートフォワーディング]  
-	22番と80番を追加  
+	以下の追加  
+	ホストポート 2222 ゲストポート 22  
+	ホストポート 8080 ゲストポート 80  
+	1. [設定]-[ネットワーク]  
+	「アダプター２」に「ホストオンリーアダプタ」を設定
+1. ネットワークの設定(Debian側)  
+	1. 「アダプタ－２」の設定を追加  
+	$ sudo vi /etc/network/interface  
+	::: ここから追加 :::  
+	auto eth1  
+	iface eth1 inet static  
+	address 192.168.33.10  
+	netmask 255.255.255.0  
+	::: ここまで追加 :::  
+	2. ネットワークの再起動  
+	$ sudo　service networking restart  
 1. 仮想環境へのssh接続  
 $ ssh ユーザ名@localhost  
-$ ssh -p 2222 vagrant@127.0.0.1  
+$ ssh -p 2222 ユーザ名@127.0.0.1  
+$ ssh ユーザ名@192.168.33.10  
 1. リポジトリ/システムの更新  
-$ sudo aptitude upgrade  
-$ sudo aptitude update  
-
+$ sudo　aptitude upgrade  
+$ sudo　aptitude update  
+1. sudoコマンドを使えるようにする  
+	1. sudoコマンドインストール&設定  
+	$ sudo　aptitude install sudo  
+	$ sudo　vi /etc/group  
+	「sudo:」にログインユーザを追加  
+	1. 一旦exitし、sshに接続し直す  
 ## サーバ(LAMP)環境構築
 
 1. Apache2インストール&設定  
@@ -59,7 +80,7 @@ $ sudo aptitude update
 		default-character-set = utf8  
 		::: ここまで :::  
 		1. 設定ファイルの再読み込み  
-		$ sudo service mysql reload  
+		$ sudo service mysql restart  
 1. PHPイストール&設定  
 	1. phpパッケージのインストール  
 	$ sudo aptitude install php5  
@@ -78,7 +99,7 @@ $ sudo aptitude update
 		?>  
 		::: 以上を追加　:::  
 		1. ブラウザで以下にアクセスし、phpの設定情報が表示されること  
-		http://localhost/test.php  
+		http://192.168.33.10/test.php  
 	1. 設定ファイル(php.ini)の編集
 		1. ディレクトリの移動  
 		$ cd /etc/php5/apache2  
