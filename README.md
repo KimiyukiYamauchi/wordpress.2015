@@ -26,7 +26,7 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 	「アダプター２」に「ホストオンリーアダプタ」を設定
 1. ネットワークの設定(Debian側)  
 	1. 「アダプタ－２」の設定を追加  
-	＃vi /etc/network/interface  
+	＃vi /etc/network/interfaces  
 	::: ここから追加 :::  
 	auto eth1  
 	iface eth1 inet static  
@@ -120,3 +120,14 @@ $ ssh ユーザ名@192.168.33.10
 		::: ここまで :::  
 		1. Apacheの再起動(設定ファイルの再読み込みのため)  
 		$ sudo service apache2 restart  
+
+## Wordpressので使用するデータベースの設定
+
+1. 以下の設定を行う  
+	- データベース名: wp  
+	- ユーザ名: wp  
+	- パスワード: wp  
+1. MySQLサーバへの接続  
+$ mysql -u root -p  
+
+1. 
