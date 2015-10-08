@@ -36,7 +36,7 @@ VirtualBox用Cenot6.4のBoxファイル: https://dl.dropboxusercontent.com/u/365
 	2. ネットワークの再起動  
 	＃service networking restart  
 1. 仮想環境へのssh接続  
-$ ssh ユーザ名@localhost  
+$ ssh -p 2222 ユーザ名@localhost  
 $ ssh -p 2222 ユーザ名@127.0.0.1  
 $ ssh ユーザ名@192.168.33.10  
 1. リポジトリ/システムの更新  
