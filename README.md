@@ -48,7 +48,7 @@ $ ssh ユーザ名@192.168.33.10
 	＃vi /etc/group  
 	「sudo:」にログインユーザを追加  
 	1. 一旦exitし、sshに接続し直す  
-	
+
 ## サーバ(LAMP)環境構築
 
 1. Apache2インストール&設定  
@@ -138,3 +138,17 @@ $ exit
 1. 「wp」データベースに「wp」ユーザ、「wp」パスワードで接続確認  
 $ mysql -u wp wp -p  
 Enter password: wp  
+
+## Wordpressのwp-config.php(設定ファイル)の変更
+
+- デバッグモードを有効にする(false -> true)  
+define('WP_DEBUG', true);
+- プラグインの更新/追加時など、「接続情報」のポップアップが出ないようにする  
+define('FS_METHOD', 'direct');  
+
+## vimの設定
+
+1. vimのインストール  
+$ sudo aptitude install vim vim-runtime  
+1. 設定ファイルの編集(以下のリポジトリを参照)  
+<a href="https://github.com/KimiyukiYamauchi/vim_setting" target="_blank">vim_setting</a>  
