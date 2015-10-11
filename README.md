@@ -139,12 +139,45 @@ $ exit
 $ mysql -u wp wp -p  
 Enter password: wp  
 
-## Wordpressのwp-config.php(設定ファイル)の変更
+## Wordpressのインストールのポイント
 
-- デバッグモードを有効にする(false -> true)  
-define('WP_DEBUG', true);
-- プラグインの更新/追加時など、「接続情報」のポップアップが出ないようにする  
-define('FS_METHOD', 'direct');  
+- 「wp-config.php ファイルに書き込むことができません。」エラー対応
+	1. wordpressのディレクトリに移動(wp => wordpressのディレクトリ)  
+	$ cd /var/www/html/wp  
+	1. wp-config.phpファイルを作成  
+	$ touch wp-config.php  
+	1. エディタで開き、エラーメッセージ下の記述をコピペ  
+	$ vi wp-config.php  
+	$ :a!  
+	ペースト  
+	もしくはFilezilla経由でSublime Textで開いて編集  
+- config.php(設定ファイル)の変更 
+	- デバッグモードを有効にする(false -> true)  
+	define('WP_DEBUG', true);  
+	- プラグインの更新/追加時など、「接続情報」のポップアップが出ないようにする  
+	define('FS_METHOD', 'direct');  
+- 手動でのプラグインの追加
+	- プラグインのダウンロード
+	- 以下のディレクトリへコピー(wp => wordpressのディレクトリ)  
+	/var/www/html/wp/wp-content/plugins  
+- 「インポートファイルをアップロードする前に次のエラーを修復する必要があります:...」  
+の対応
+	1. wp-contentディレクトリに移動(wp => wordpressのディレクトリ)  
+	$ cd /var/www/html/wp/wp-content  
+	1. uploadsディレくトリ作成  
+	$ mkdir uploads  
+	1. uploadsディレくトリに「others」の書込み権限を追加  
+	$ chmod o+w uploads/  
+- ダッシュボード(管理画面)の「外観」-「テーマの編集」の画面で、「ファイルを更新」の  
+ボタンが表示されない問題の対応  
+	1. テーマのディレクトリに移動(wp => wordpressのディレクトリ)  
+	$ cd /var/www/html/wp/wp-content/themes/mytheme  
+	1. style.css及びindex.phpに「others」の書込み権限を追加  
+	$ chmod o+w style.css index.php
+
+## Wordpressファイルパーミッションの変更
+
+- <a href="https://wpdocs.osdn.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%91%E3%83%BC%E3%83%9F%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%A4%89%E6%9B%B4" target="_blank">ファイルパーミッションの変更</a>
 
 ## vimの設定
 
