@@ -181,7 +181,7 @@ Enter password: wp
 
 ## WordpressのテンプレートタグとPHPの関係  
 
-- <a href="" target="_blank">記事のタイトルと本文の表示</a>
+- <a href="https://github.com/KimiyukiYamauchi/wordpress.2015/blob/master/title_content.md" target="_blank">記事のタイトルと本文の表示</a>
 
 ## vimの設定
 
