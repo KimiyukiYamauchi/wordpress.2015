@@ -189,3 +189,5 @@ Enter password: wp
 $ sudo aptitude install vim vim-runtime  
 1. 設定ファイルの編集(以下のリポジトリを参照)  
 <a href="https://github.com/KimiyukiYamauchi/vim_setting" target="_blank">vim_setting</a>  
+
+## <a href="https://github.com/KimiyukiYamauchi/wordpress.2015/blob/master/link.md" target="_blank">関連リンク</a>
