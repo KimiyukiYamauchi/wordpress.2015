@@ -151,7 +151,7 @@ Enter password: wp
 	$ :a!  
 	ペースト  
 	もしくはFilezilla経由でSublime Textで開いて編集  
-- config.php(設定ファイル)の変更 
+- wp-config.php(設定ファイル)の変更 
 	- デバッグモードを有効にする(false -> true)  
 	define('WP_DEBUG', true);  
 	- プラグインの更新/追加時など、「接続情報」のポップアップが出ないようにする  
