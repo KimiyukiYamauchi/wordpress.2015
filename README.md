@@ -183,6 +183,13 @@ Enter password: wp
 
 - <a href="https://github.com/KimiyukiYamauchi/wordpress.2015/blob/master/title_content.md" target="_blank">記事のタイトルと本文の表示</a>
 
+## 「WordPressレッスンブック」で作成するテーマのリポジトリ
+
+- <a href="https://github.com/KimiyukiYamauchi/wp.2015" target="_blank">授業で作成中のテーマのリポジトリ(wp)</a>  
+  
+- <a href="https://github.com/KimiyukiYamauchi/wp.yo.2015" target="_blank">事前に動作確認のために作成したテーマのリポジトリ(wp.yo)</a>
+
+
 ## vimの設定
 
 1. vimのインストール  
