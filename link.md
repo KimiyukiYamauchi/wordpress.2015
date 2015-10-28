@@ -2,3 +2,4 @@
 
 - <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>
 - <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a>
+- <a href="https://wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7</a>
