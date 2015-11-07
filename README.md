@@ -139,7 +139,7 @@ $ exit
 $ mysql -u wp wp -p  
 Enter password: wp  
 
-## Wordpressのインストールのポイント
+## Wordpressのインストール/設定のポイント
 
 - 「wp-config.php ファイルに書き込むことができません。」エラー対応
 	1. wordpressのディレクトリに移動(wp => wordpressのディレクトリ)  
@@ -173,7 +173,33 @@ Enter password: wp
 	1. テーマのディレクトリに移動(wp => wordpressのディレクトリ)  
 	$ cd /var/www/html/wp/wp-content/themes/mytheme  
 	1. style.css及びindex.phpに「others」の書込み権限を追加  
-	$ chmod o+w style.css index.php
+	$ chmod o+w style.css index.php  
+
+## ダッシュボード(管理画面)の「設定」-「パーマリンク設定」を有効にする
+
+- Apacheの「mod_rewrite」を有効にする  
+$ sudo a2enmod rewrite
+- Apacheの設定ファイルの変更  
+$ sudo vi /etc/apache2/sites-available/000-default.conf  
+で、以下を追加．この時、wp => wordpressのディレクトリ
+
+```
+<Directory /var/www/html/wp/>
+	Options Indexes FollowSymLinks
+	AllowOverride FileInfo Options
+	Require all granted
+</Directory>
+```
+
+- Apacheを再起動  
+$ sudo serivice apache2 restart  
+- 「.htaccess」を作成し、Apacheから書込みできるようにする  
+	1. ディレクトリの移動(wp => wordpressのディレクトリ)  
+	$ cd /var/www/html/wp  
+	1. 「.htaccess」を作成  
+	$ touch .htaccess  
+	1. Apacheから書込みできるようにする  
+	$ chmod o+w .htaccess  
 
 ## Wordpressファイルパーミッションの変更
 
@@ -188,7 +214,6 @@ Enter password: wp
 - <a href="https://github.com/KimiyukiYamauchi/wp.2015" target="_blank">授業で作成中のテーマのリポジトリ(wp)</a>  
   
 - <a href="https://github.com/KimiyukiYamauchi/wp.yo.2015" target="_blank">事前に動作確認のために作成したテーマのリポジトリ(wp.yo)</a>
-
 
 ## vimの設定
 
