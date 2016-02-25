@@ -1,4 +1,4 @@
-# wordpress.2015  
+# test0225  
 
 本リポジトリは夜間クラスのWordpressの授業で使用する
 
